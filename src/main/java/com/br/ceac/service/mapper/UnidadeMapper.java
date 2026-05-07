@@ -15,6 +15,10 @@ public class UnidadeMapper {
         Unidade entity = new Unidade();
         Condominio condominio = new Condominio();
 
+        condominio.setId(dto.getCondominio().getId());
+        condominio.setNome(dto.getCondominio().getNome());
+        condominio.setEndereco(dto.getCondominio().getEndereco());
+
         entity.setId(dto.getId());
         entity.setBloco(dto.getBloco());
         entity.setApartamento(dto.getApartamento());
@@ -27,12 +31,16 @@ public class UnidadeMapper {
         if (entity == null) return null;
 
         UnidadeDTO dto = new UnidadeDTO();
-        CondominioDTO condominioDTO = new CondominioDTO();
+        CondominioDTO condominio = new CondominioDTO();
+
+        condominio.setId(entity.getCondominio().getId());
+        condominio.setNome(entity.getCondominio().getNome());
+        condominio.setEndereco(entity.getCondominio().getEndereco());
 
         dto.setId(entity.getId());
         dto.setBloco(entity.getBloco());
         dto.setApartamento(entity.getApartamento());
-        dto.setCondominioDTO(condominioDTO);
+        dto.setCondominio(condominio);
 
         return dto;
     }

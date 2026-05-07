@@ -7,7 +7,7 @@ public class UnidadeDTO implements Serializable {
     private Long id;
     private String bloco;
     private String apartamento;
-    private CondominioDTO condominioDTO;
+    private CondominioDTO condominio;
 
     public Long getId() {
         return id;
@@ -33,11 +33,11 @@ public class UnidadeDTO implements Serializable {
         this.apartamento = apartamento;
     }
 
-    public CondominioDTO getCondominioDTO() {
-        return condominioDTO;
+    public CondominioDTO getCondominio() {
+        return condominio;
     }
 
-    public void setCondominioDTO(CondominioDTO condominioDTO) {
-        this.condominioDTO = condominioDTO;
+    public void setCondominio(CondominioDTO condominio) {
+        this.condominio = condominio;
     }
 }

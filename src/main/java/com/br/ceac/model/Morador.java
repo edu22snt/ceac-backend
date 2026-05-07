@@ -13,6 +13,7 @@ public class Morador implements Serializable {
     @Column(name="CD_MORADOR")
     private Long id;
 
+    @Column(name="DS_NOME")
     private String nome;
 
     @OneToOne
@@ -30,8 +31,11 @@ public class Morador implements Serializable {
     @Column(name="IS_PROPRIETARIO")
     private boolean proprietario;
 
-    @Column(name="NM_TELEFONE")
+    @Column(name="DS_TELEFONE")
     private String telefone;
+
+    @Column(name="DS_EMAIL")
+    private String email;
 
     public Long getId() {
         return id;
@@ -87,5 +91,13 @@ public class Morador implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

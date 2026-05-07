@@ -46,7 +46,6 @@ public class UnidadeService {
         return UnidadeMapper.toDto(repository.save(entity));
     }
 
-
     @Transactional(readOnly = true)
     public UnidadeDTO findById(Long id) {
         log.debug("Request to get Unidade by id : {}", id);

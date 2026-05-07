@@ -13,11 +13,8 @@ public class Portao implements Serializable {
     @Column(name="CD_PORTAO")
     private Long id;
 
-    @Column(name="NM_NOME")
-    private Long nome;
-
-    @Column(name="NU_NUMERO")
-    private Long numero;
+    @Column(name="DS_NOME")
+    private String nome;
 
     public Long getId() {
         return id;
@@ -27,19 +24,12 @@ public class Portao implements Serializable {
         this.id = id;
     }
 
-    public Long getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Long nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Long getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Long numero) {
-        this.numero = numero;
-    }
 }

@@ -8,6 +8,7 @@ public class VisitanteDTO implements Serializable {
     private Long id;
     private String nome;
     private String documento;
+    private String telefone;
     private UnidadeDTO unidadeDTO;
     private VeiculoDTO veiculoDTO;
     private LocalDateTime dataEntrada;
@@ -35,6 +36,14 @@ public class VisitanteDTO implements Serializable {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public UnidadeDTO getUnidadeDTO() {

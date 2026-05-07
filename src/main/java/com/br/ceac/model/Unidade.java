@@ -13,10 +13,10 @@ public class Unidade implements Serializable {
     @Column(name="CD_UNIDADE")
     private Long id;
 
-    @Column(name="CD_ENDERECO")
+    @Column(name="DS_ENDERECO")
     private String bloco;
 
-    @Column(name="CD_NOME")
+    @Column(name="DS_APARTAMENTO")
     private String apartamento;
 
     @ManyToOne

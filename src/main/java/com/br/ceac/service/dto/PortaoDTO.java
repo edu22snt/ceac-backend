@@ -5,8 +5,7 @@ import java.io.Serializable;
 public class PortaoDTO implements Serializable {
 
     private Long id;
-    private Long nome;
-    private Long numero;
+    private String nome;
 
     public Long getId() {
         return id;
@@ -16,19 +15,12 @@ public class PortaoDTO implements Serializable {
         this.id = id;
     }
 
-    public Long getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Long nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Long getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Long numero) {
-        this.numero = numero;
-    }
 }

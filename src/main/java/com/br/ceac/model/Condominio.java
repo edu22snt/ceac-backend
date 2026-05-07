@@ -13,10 +13,10 @@ public class Condominio implements Serializable {
     @Column(name="CD_CONDOMINIO")
     private Long id;
 
-    @Column(name="CD_NOME")
+    @Column(name="DS_NOME")
     private String nome;
 
-    @Column(name="CD_ENDERECO")
+    @Column(name="DS_ENDERECO")
     private String endereco;
 
     public Long getId() {

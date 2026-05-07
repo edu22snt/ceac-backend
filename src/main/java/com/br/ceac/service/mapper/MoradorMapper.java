@@ -26,9 +26,9 @@ public class MoradorMapper {
         veiculo.setCor(dto.getVeiculoDTO().getCor());
         veiculo.setModelo(dto.getVeiculoDTO().getModelo());
 
-        condominio.setId(dto.getUnidadeDTO().getCondominioDTO().getId());
-        condominio.setNome(dto.getUnidadeDTO().getCondominioDTO().getNome());
-        condominio.setEndereco(dto.getUnidadeDTO().getCondominioDTO().getEndereco());
+        condominio.setId(dto.getUnidadeDTO().getCondominio().getId());
+        condominio.setNome(dto.getUnidadeDTO().getCondominio().getNome());
+        condominio.setEndereco(dto.getUnidadeDTO().getCondominio().getEndereco());
 
         unidade.setId(dto.getUnidadeDTO().getId());
         unidade.setBloco(dto.getUnidadeDTO().getBloco());
@@ -73,7 +73,7 @@ public class MoradorMapper {
         unidadeDTO.setId(entity.getUnidade().getId());
         unidadeDTO.setBloco(entity.getUnidade().getBloco());
         unidadeDTO.setApartamento(entity.getUnidade().getApartamento());
-        unidadeDTO.setCondominioDTO(condominioDTO);
+        unidadeDTO.setCondominio(condominioDTO);
 
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());

@@ -14,18 +14,21 @@ public class Visitante implements Serializable {
     @Column(name="CD_VISITANTE")
     private Long id;
 
-    @Column(name="NM_NOME")
+    @Column(name="DS_NOME")
     private String nome;
 
-    @Column(name="NM_DOCUMENTO")
+    @Column(name="DS_DOCUMENTO")
     private String documento;
 
+    @Column(name="DS_TELEFONE")
+    private String telefone;
+
     @ManyToOne
-    @JoinColumn(name = "CD_UNIDADE")
+    @JoinColumn(name="CD_UNIDADE")
     private Unidade unidade;
 
     @ManyToOne
-    @JoinColumn(name = "CD_VEICULO")
+    @JoinColumn(name="CD_VEICULO")
     private Veiculo veiculo;
 
     @Column(name="DT_DATA_ENTRADA")
@@ -56,6 +59,14 @@ public class Visitante implements Serializable {
 
     public void setDocumento(String documento) {
         this.documento = documento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public Unidade getUnidade() {

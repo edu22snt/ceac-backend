@@ -8,22 +8,29 @@ import java.io.Serializable;
 @Table(name = "TB_VEICULO")
 public class Veiculo implements Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="CD_VEICULO")
+    @Column(name = "CD_VEICULO")
     private Long id;
 
-    @Column(name="NM_TIPO")
-    private String tipo;
+    @Column(name = "DS_PLACA", nullable = false, unique = true)
+    private String placa;
 
-    @Column(name="NM_MODELO")
+    @Column(name = "DS_MODELO")
     private String modelo;
 
-    @Column(name="NM_COR")
+    @Column(name = "DS_MARCA")
+    private String marca;
+
+    @Column(name = "DS_COR")
     private String cor;
 
-    @Column(name="NM_PLACA")
-    private String placa;
+    @Column(name = "NR_ANO")
+    private Integer ano;
+
+    @Column(name = "DS_TIPO")
+    private String tipo; // CARRO, MOTO, CAMINHONETE...
 
     public Long getId() {
         return id;
@@ -33,12 +40,12 @@ public class Veiculo implements Serializable {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getPlaca() {
+        return placa;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public String getModelo() {
@@ -49,6 +56,14 @@ public class Veiculo implements Serializable {
         this.modelo = modelo;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     public String getCor() {
         return cor;
     }
@@ -57,11 +72,19 @@ public class Veiculo implements Serializable {
         this.cor = cor;
     }
 
-    public String getPlaca() {
-        return placa;
+    public Integer getAno() {
+        return ano;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

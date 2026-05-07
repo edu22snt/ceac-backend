@@ -20,6 +20,7 @@ public class VisitanteMapper {
         entity.setId(dto.getId());
         entity.setNome(dto.getNome());
         entity.setDocumento(dto.getDocumento());
+        entity.setTelefone(dto.getTelefone());
         entity.setDataEntrada(dto.getDataEntrada());
         entity.setDataSaida(dto.getDataSaida());
         entity.setUnidade(unidade);
@@ -35,6 +36,7 @@ public class VisitanteMapper {
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
         dto.setDocumento(entity.getDocumento());
+        dto.setTelefone(entity.getTelefone());
         dto.setDataEntrada(entity.getDataEntrada());
         dto.setDataSaida(entity.getDataSaida());
         dto.setUnidadeDTO(unidadeDTO);
