@@ -17,6 +17,9 @@ public class Visitante implements Serializable {
     @Column(name="DS_NOME")
     private String nome;
 
+    @Column(name="DS_TIPO_DOCUMENTO")
+    private String tipoDocumento;
+
     @Column(name="DS_DOCUMENTO")
     private String documento;
 
@@ -34,9 +37,6 @@ public class Visitante implements Serializable {
     @Column(name="DT_DATA_ENTRADA")
     private LocalDateTime dataEntrada;
 
-    @Column(name="DT_DATA_SAIDA")
-    private LocalDateTime dataSaida;
-
     public Long getId() {
         return id;
     }
@@ -51,6 +51,14 @@ public class Visitante implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
     public String getDocumento() {
@@ -93,11 +101,4 @@ public class Visitante implements Serializable {
         this.dataEntrada = dataEntrada;
     }
 
-    public LocalDateTime getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(LocalDateTime dataSaida) {
-        this.dataSaida = dataSaida;
-    }
 }

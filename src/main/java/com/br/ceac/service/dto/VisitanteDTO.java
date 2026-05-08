@@ -7,12 +7,12 @@ public class VisitanteDTO implements Serializable {
 
     private Long id;
     private String nome;
+    private String tipoDocumento;
     private String documento;
     private String telefone;
-    private UnidadeDTO unidadeDTO;
-    private VeiculoDTO veiculoDTO;
+    private UnidadeDTO unidade;
+    private VeiculoDTO veiculo;
     private LocalDateTime dataEntrada;
-    private LocalDateTime dataSaida;
 
     public Long getId() {
         return id;
@@ -28,6 +28,14 @@ public class VisitanteDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
 
     public String getDocumento() {
@@ -46,20 +54,20 @@ public class VisitanteDTO implements Serializable {
         this.telefone = telefone;
     }
 
-    public UnidadeDTO getUnidadeDTO() {
-        return unidadeDTO;
+    public UnidadeDTO getUnidade() {
+        return unidade;
     }
 
-    public void setUnidadeDTO(UnidadeDTO unidadeDTO) {
-        this.unidadeDTO = unidadeDTO;
+    public void setUnidade(UnidadeDTO unidade) {
+        this.unidade = unidade;
     }
 
-    public VeiculoDTO getVeiculoDTO() {
-        return veiculoDTO;
+    public VeiculoDTO getVeiculo() {
+        return veiculo;
     }
 
-    public void setVeiculoDTO(VeiculoDTO veiculoDTO) {
-        this.veiculoDTO = veiculoDTO;
+    public void setVeiculo(VeiculoDTO veiculo) {
+        this.veiculo = veiculo;
     }
 
     public LocalDateTime getDataEntrada() {
@@ -70,11 +78,4 @@ public class VisitanteDTO implements Serializable {
         this.dataEntrada = dataEntrada;
     }
 
-    public LocalDateTime getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(LocalDateTime dataSaida) {
-        this.dataSaida = dataSaida;
-    }
 }

@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,7 @@ public class VisitanteService {
 
     public VisitanteDTO save(VisitanteDTO dto) {
         log.debug("Request to post save Visitante");
+        dto.setDataEntrada(LocalDateTime.now());
         Visitante visitante = mapper.toEntity(dto);
         visitante = repository.save(visitante);
         return mapper.toDto(visitante);

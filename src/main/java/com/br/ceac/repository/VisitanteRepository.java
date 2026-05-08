@@ -13,6 +13,13 @@ public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
 
     @Query("SELECT t FROM Visitante t WHERE " +
             "LOWER(t.nome) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.telefone) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.unidade.bloco) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.unidade.apartamento) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.veiculo.placa) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.veiculo.marca) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.veiculo.modelo) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.tipoDocumento) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(t.documento) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<Visitante> searchByKeyword(@Param("keyword") String keyword, Pageable pageable);
 }
