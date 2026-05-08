@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -73,6 +74,18 @@ public class VisitanteService {
         Visitante visitante = mapper.toEntity(dto);
         visitante = repository.save(visitante);
         return mapper.toDto(visitante);
+    }
+
+    @Transactional(readOnly = true)
+    public List<VisitanteDTO> recuperarListaVisitantesDiario() {
+        log.debug("Request to get all Visitante diário");
+        LocalDate hoje = LocalDate.now();
+        LocalDateTime inicio = hoje.atStartOfDay();
+        LocalDateTime fim = hoje.plusDays(1).atStartOfDay();
+        return repository.recuperarListaVisitantesDiario(inicio, fim)
+                .stream()
+                .map(VisitanteMapper::toDto)
+                .toList();
     }
 
 }

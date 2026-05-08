@@ -53,6 +53,11 @@ public class VisitanteController {
         return ResponseEntity.ok(service.searchByKeyword(param, pageable));
     }
 
+    @GetMapping("/recuperarListaVisitantesDiario")
+    public ResponseEntity<List<VisitanteDTO>> recuperarListaVisitantesDiario() {
+        return ResponseEntity.ok(service.recuperarListaVisitantesDiario());
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);

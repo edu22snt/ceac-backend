@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Repository
 public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
 
@@ -22,4 +25,7 @@ public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
             "LOWER(t.tipoDocumento) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(t.documento) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<Visitante> searchByKeyword(@Param("keyword") String keyword, Pageable pageable);
+
+    @Query("SELECT v FROM Visitante v WHERE v.dataEntrada >= :inicio AND v.dataEntrada < :fim")
+    List<Visitante> recuperarListaVisitantesDiario(@Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
 }

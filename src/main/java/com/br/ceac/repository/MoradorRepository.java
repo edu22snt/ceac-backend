@@ -14,6 +14,12 @@ public interface MoradorRepository extends JpaRepository<Morador, Long> {
     @Query("SELECT t FROM Morador t WHERE " +
             "LOWER(t.nome) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(t.telefone) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.email) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.unidade.bloco) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.unidade.apartamento) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.veiculo.modelo) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.veiculo.marca) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+            "LOWER(t.usuario.username) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
             "LOWER(t.veiculo.placa) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<Morador> searchByKeyword(@Param("keyword") String keyword, Pageable pageable);
 }
