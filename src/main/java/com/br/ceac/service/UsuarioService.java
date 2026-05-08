@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -77,6 +78,15 @@ public class UsuarioService {
     }
 
     @Transactional(readOnly = true)
+    public List<UsuarioDTO> findAllNotPage() {
+        log.debug("Request to get all Usuario");
+        return usuarioRepository.findAll()
+                .stream()
+                .map(UsuarioMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Optional<UsuarioDTO> findByUsername(String username) {
         log.debug("Request to get one Usuario by username");
         return usuarioRepository.findByUsername(username).map(UsuarioMapper::toDto);
@@ -87,4 +97,5 @@ public class UsuarioService {
         log.debug("Request to get all username");
         return usuarioRepository.searchByKeyword(param, pageable).map(UsuarioMapper::toDto);
     }
+
 }

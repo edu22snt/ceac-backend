@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,6 +47,15 @@ public class VisitanteService {
     }
 
     @Transactional(readOnly = true)
+    public List<VisitanteDTO> findAllNotPage() {
+        log.debug("Request to get all Visitante");
+        return repository.findAll()
+                .stream()
+                .map(VisitanteMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Page<VisitanteDTO> searchByKeyword(String param, Pageable pageable) {
         log.debug("Request to get searchByKeyword");
         return repository.searchByKeyword(param, pageable).map(VisitanteMapper::toDto);
@@ -62,6 +72,5 @@ public class VisitanteService {
         visitante = repository.save(visitante);
         return mapper.toDto(visitante);
     }
-
 
 }

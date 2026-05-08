@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CondominioService {
@@ -62,6 +64,15 @@ public class CondominioService {
     }
 
     @Transactional(readOnly = true)
+    public List<CondominioDTO> findAllNotPage() {
+        log.debug("Request to get all Condominio");
+        return repository.findAll()
+                .stream()
+                .map(CondominioMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Page<CondominioDTO> searchByKeyword(String param, Pageable pageable) {
         log.debug("Request to get search Condominio by keyword");
         return repository.searchByKeyword(param, pageable).map(CondominioMapper::toDto);
@@ -74,4 +85,5 @@ public class CondominioService {
         }
         repository.deleteById(id);
     }
+
 }

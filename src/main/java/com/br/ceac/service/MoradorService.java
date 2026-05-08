@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,6 +48,15 @@ public class MoradorService {
     public Page<MoradorDTO> findAll(Pageable pageable) {
         log.debug("Request to get all morador");
         return repository.findAll(pageable).map(MoradorMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<MoradorDTO> findAllNotPage() {
+        log.debug("Request to get all morador");
+        return repository.findAll()
+                .stream()
+                .map(MoradorMapper::toDto)
+                .toList();
     }
 
     @Transactional(readOnly = true)

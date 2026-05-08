@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -60,6 +61,15 @@ public class ControleAcessoService {
     }
 
     @Transactional(readOnly = true)
+    public List<ControleAcessoDTO> findAllNotPage() {
+        log.debug("Request to get all ControleAcesso");
+        return repository.findAll()
+                .stream()
+                .map(ControleAcessoMapper::toDto)
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
     public Page<ControleAcessoDTO> searchByKeyword(String param, Pageable pageable) {
         log.debug("Request to get search ControleAcesso by keyword");
         return repository.searchByKeyword(param, pageable).map(ControleAcessoMapper::toDto);
@@ -72,4 +82,5 @@ public class ControleAcessoService {
         }
         repository.deleteById(id);
     }
+
 }

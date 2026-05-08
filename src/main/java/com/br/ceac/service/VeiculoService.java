@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -43,6 +44,15 @@ public class VeiculoService {
     public Page<VeiculoDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Veiculo");
         return repository.findAll(pageable).map(VeiculoMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public List<VeiculoDTO> findAllNotPage() {
+        log.debug("Request to get all Veiculo");
+        return repository.findAll()
+                .stream()
+                .map(VeiculoMapper::toDto)
+                .toList();
     }
 
     @Transactional(readOnly = true)

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/unidade")
@@ -40,6 +41,11 @@ public class UnidadeController {
     @GetMapping("/findAll")
     public ResponseEntity<Page<UnidadeDTO>> findAll(Pageable pageable) {
         return ResponseEntity.ok(service.findAll(pageable));
+    }
+
+    @GetMapping("/findAllNotPage")
+    public ResponseEntity<List<UnidadeDTO>> findAllNotPage() {
+        return ResponseEntity.ok(service.findAllNotPage());
     }
 
     @GetMapping("/searchByKeyword")
