@@ -15,24 +15,24 @@ public class MoradorMapper {
         Unidade unidade = new Unidade();
         Condominio condominio = new Condominio();
 
-        usuario.setId(dto.getUsuarioDTO().getId());
-        usuario.setPassword(dto.getUsuarioDTO().getPassword());
-        usuario.setUseremail(dto.getUsuarioDTO().getUseremail());
-        usuario.setUsername(dto.getUsuarioDTO().getUsername());
+        usuario.setId(dto.getUsuario().getId());
+        usuario.setPassword(dto.getUsuario().getPassword());
+        usuario.setUseremail(dto.getUsuario().getUseremail());
+        usuario.setUsername(dto.getUsuario().getUsername());
 
-        veiculo.setId(dto.getVeiculoDTO().getId());
-        veiculo.setTipo(dto.getVeiculoDTO().getTipo());
-        veiculo.setPlaca(dto.getVeiculoDTO().getPlaca());
-        veiculo.setCor(dto.getVeiculoDTO().getCor());
-        veiculo.setModelo(dto.getVeiculoDTO().getModelo());
+        veiculo.setId(dto.getVeiculo().getId());
+        veiculo.setTipo(dto.getVeiculo().getTipo());
+        veiculo.setPlaca(dto.getVeiculo().getPlaca());
+        veiculo.setCor(dto.getVeiculo().getCor());
+        veiculo.setModelo(dto.getVeiculo().getModelo());
 
-        condominio.setId(dto.getUnidadeDTO().getCondominio().getId());
-        condominio.setNome(dto.getUnidadeDTO().getCondominio().getNome());
-        condominio.setEndereco(dto.getUnidadeDTO().getCondominio().getEndereco());
+        condominio.setId(dto.getUnidade().getCondominio().getId());
+        condominio.setNome(dto.getUnidade().getCondominio().getNome());
+        condominio.setEndereco(dto.getUnidade().getCondominio().getEndereco());
 
-        unidade.setId(dto.getUnidadeDTO().getId());
-        unidade.setBloco(dto.getUnidadeDTO().getBloco());
-        unidade.setApartamento(dto.getUnidadeDTO().getApartamento());
+        unidade.setId(dto.getUnidade().getId());
+        unidade.setBloco(dto.getUnidade().getBloco());
+        unidade.setApartamento(dto.getUnidade().getApartamento());
         unidade.setCondominio(condominio);
 
         entity.setId(dto.getId());
@@ -43,6 +43,7 @@ public class MoradorMapper {
         entity.setUnidade(unidade);
         entity.setProprietario(dto.isProprietario());
         entity.setTelefone(dto.getTelefone());
+        entity.setEmail(dto.getEmail());
 
         return entity;
     }
@@ -50,39 +51,40 @@ public class MoradorMapper {
     public static MoradorDTO toDto(Morador entity) {
         MoradorDTO dto = new MoradorDTO();
 
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
-        VeiculoDTO veiculoDTO = new VeiculoDTO();
-        UnidadeDTO unidadeDTO = new UnidadeDTO();
-        CondominioDTO condominioDTO = new CondominioDTO();
+        UsuarioDTO usuario = new UsuarioDTO();
+        VeiculoDTO veiculo = new VeiculoDTO();
+        UnidadeDTO unidade = new UnidadeDTO();
+        CondominioDTO condominio = new CondominioDTO();
 
-        usuarioDTO.setId(entity.getUsuario().getId());
-        usuarioDTO.setPassword(entity.getUsuario().getPassword());
-        usuarioDTO.setUseremail(entity.getUsuario().getUseremail());
-        usuarioDTO.setUsername(entity.getUsuario().getUsername());
+        usuario.setId(entity.getUsuario().getId());
+        usuario.setPassword(entity.getUsuario().getPassword());
+        usuario.setUseremail(entity.getUsuario().getUseremail());
+        usuario.setUsername(entity.getUsuario().getUsername());
 
-        veiculoDTO.setId(entity.getVeiculo().getId());
-        veiculoDTO.setTipo(entity.getVeiculo().getTipo());
-        veiculoDTO.setPlaca(entity.getVeiculo().getPlaca());
-        veiculoDTO.setCor(entity.getVeiculo().getCor());
-        veiculoDTO.setModelo(entity.getVeiculo().getModelo());
+        veiculo.setId(entity.getVeiculo().getId());
+        veiculo.setTipo(entity.getVeiculo().getTipo());
+        veiculo.setPlaca(entity.getVeiculo().getPlaca());
+        veiculo.setCor(entity.getVeiculo().getCor());
+        veiculo.setModelo(entity.getVeiculo().getModelo());
 
-        condominioDTO.setId(entity.getUnidade().getCondominio().getId());
-        condominioDTO.setNome(entity.getUnidade().getCondominio().getNome());
-        condominioDTO.setEndereco(entity.getUnidade().getCondominio().getEndereco());
+        condominio.setId(entity.getUnidade().getCondominio().getId());
+        condominio.setNome(entity.getUnidade().getCondominio().getNome());
+        condominio.setEndereco(entity.getUnidade().getCondominio().getEndereco());
 
-        unidadeDTO.setId(entity.getUnidade().getId());
-        unidadeDTO.setBloco(entity.getUnidade().getBloco());
-        unidadeDTO.setApartamento(entity.getUnidade().getApartamento());
-        unidadeDTO.setCondominio(condominioDTO);
+        unidade.setId(entity.getUnidade().getId());
+        unidade.setBloco(entity.getUnidade().getBloco());
+        unidade.setApartamento(entity.getUnidade().getApartamento());
+        unidade.setCondominio(condominio);
 
         dto.setId(entity.getId());
         dto.setNome(entity.getNome());
 
-        dto.setUsuarioDTO(usuarioDTO);
-        dto.setVeiculoDTO(veiculoDTO);
-        dto.setUnidadeDTO(unidadeDTO);
+        dto.setUsuario(usuario);
+        dto.setVeiculo(veiculo);
+        dto.setUnidade(unidade);
         dto.setProprietario(entity.isProprietario());
         dto.setTelefone(entity.getTelefone());
+        dto.setEmail(entity.getEmail());
 
         return dto;
     }

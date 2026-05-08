@@ -13,7 +13,7 @@ public class Unidade implements Serializable {
     @Column(name="CD_UNIDADE")
     private Long id;
 
-    @Column(name="DS_ENDERECO")
+    @Column(name="DS_BLOCO")
     private String bloco;
 
     @Column(name="DS_APARTAMENTO")

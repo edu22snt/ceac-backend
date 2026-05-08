@@ -6,9 +6,9 @@ public class MoradorDTO implements Serializable {
 
     private Long id;
     private String nome;
-    private UsuarioDTO usuarioDTO;
-    private VeiculoDTO veiculoDTO;
-    private UnidadeDTO unidadeDTO;
+    private UsuarioDTO usuario;
+    private VeiculoDTO veiculo;
+    private UnidadeDTO unidade;
     private boolean proprietario;
     private String telefone;
     private String email;
@@ -29,28 +29,28 @@ public class MoradorDTO implements Serializable {
         this.nome = nome;
     }
 
-    public UsuarioDTO getUsuarioDTO() {
-        return usuarioDTO;
+    public UsuarioDTO getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioDTO(UsuarioDTO usuarioDTO) {
-        this.usuarioDTO = usuarioDTO;
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
     }
 
-    public VeiculoDTO getVeiculoDTO() {
-        return veiculoDTO;
+    public VeiculoDTO getVeiculo() {
+        return veiculo;
     }
 
-    public void setVeiculoDTO(VeiculoDTO veiculoDTO) {
-        this.veiculoDTO = veiculoDTO;
+    public void setVeiculo(VeiculoDTO veiculo) {
+        this.veiculo = veiculo;
     }
 
-    public UnidadeDTO getUnidadeDTO() {
-        return unidadeDTO;
+    public UnidadeDTO getUnidade() {
+        return unidade;
     }
 
-    public void setUnidadeDTO(UnidadeDTO unidadeDTO) {
-        this.unidadeDTO = unidadeDTO;
+    public void setUnidade(UnidadeDTO unidade) {
+        this.unidade = unidade;
     }
 
     public boolean isProprietario() {

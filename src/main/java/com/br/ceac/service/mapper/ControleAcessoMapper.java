@@ -19,23 +19,23 @@ public class ControleAcessoMapper {
         Usuario usuario = new Usuario();
         Condominio condominio = new Condominio();
 
-        condominio.setId(dto.getMoradorDTO().getUnidadeDTO().getCondominio().getId());
-        condominio.setNome(dto.getMoradorDTO().getUnidadeDTO().getCondominio().getNome());
-        condominio.setEndereco(dto.getMoradorDTO().getUnidadeDTO().getCondominio().getEndereco());
+        condominio.setId(dto.getMoradorDTO().getUnidade().getCondominio().getId());
+        condominio.setNome(dto.getMoradorDTO().getUnidade().getCondominio().getNome());
+        condominio.setEndereco(dto.getMoradorDTO().getUnidade().getCondominio().getEndereco());
 
-        usuario.setId(dto.getMoradorDTO().getUsuarioDTO().getId());
-        usuario.setUsername(dto.getMoradorDTO().getUsuarioDTO().getUsername());
-        usuario.setUseremail(dto.getMoradorDTO().getUsuarioDTO().getUseremail());
-//        usuario.setRoles(dto.getMoradorDTO().getUsuarioDTO().getRoles());
-        usuario.setPassword(dto.getMoradorDTO().getUsuarioDTO().getPassword());
+        usuario.setId(dto.getMoradorDTO().getUsuario().getId());
+        usuario.setUsername(dto.getMoradorDTO().getUsuario().getUsername());
+        usuario.setUseremail(dto.getMoradorDTO().getUsuario().getUseremail());
+//        usuario.setRoles(dto.getMoradorDTO().getUsuario().getRoles());
+        usuario.setPassword(dto.getMoradorDTO().getUsuario().getPassword());
 
         portao.setId(dto.getPortaoDTO().getId());
         portao.setNome(dto.getPortaoDTO().getNome());
 
-        unidade.setId(dto.getMoradorDTO().getUnidadeDTO().getId());
+        unidade.setId(dto.getMoradorDTO().getUnidade().getId());
         unidade.setCondominio(condominio);
-        unidade.setBloco(dto.getMoradorDTO().getUnidadeDTO().getBloco());
-        unidade.setApartamento(dto.getMoradorDTO().getUnidadeDTO().getApartamento());
+        unidade.setBloco(dto.getMoradorDTO().getUnidade().getBloco());
+        unidade.setApartamento(dto.getMoradorDTO().getUnidade().getApartamento());
 
         morador.setId(dto.getMoradorDTO().getId());
         morador.setNome(dto.getMoradorDTO().getNome());
@@ -87,8 +87,8 @@ public class ControleAcessoMapper {
         morador.setTelefone(entity.getMorador().getTelefone());
         morador.setEmail(entity.getMorador().getEmail());
         morador.setProprietario(entity.getMorador().isProprietario());
-        morador.setUnidadeDTO(unidade);
-        morador.setUsuarioDTO(usuario);
+        morador.setUnidade(unidade);
+        morador.setUsuario(usuario);
 
         dto.setId(dto.getId());
         dto.setTag(dto.getTag());
