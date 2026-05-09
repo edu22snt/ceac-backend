@@ -35,6 +35,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/veiculo/**").hasAnyRole(USER, ADMIN)
                         .requestMatchers("/api/visitante/**").hasAnyRole(USER, ADMIN)
                         .requestMatchers("/api/portao/**").hasAnyRole(USER, ADMIN)
+                        .requestMatchers("/api/mudanca/**").hasAnyRole(USER, ADMIN)
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
