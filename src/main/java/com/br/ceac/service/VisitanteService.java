@@ -77,15 +77,18 @@ public class VisitanteService {
     }
 
     @Transactional(readOnly = true)
-    public List<VisitanteDTO> recuperarListaVisitantesDiario() {
+    public Page<VisitanteDTO> recuperarListaVisitantesDiario(Pageable pageable) {
         log.debug("Request to get all Visitante diário");
         LocalDate hoje = LocalDate.now();
         LocalDateTime inicio = hoje.atStartOfDay();
         LocalDateTime fim = hoje.plusDays(1).atStartOfDay();
-        return repository.recuperarListaVisitantesDiario(inicio, fim)
-                .stream()
-                .map(VisitanteMapper::toDto)
-                .toList();
+        return repository.recuperarListaVisitantesDiario(pageable, inicio, fim).map(VisitanteMapper::toDto);
+//        return repository.recuperarListaVisitantesDiario(pageable, inicio, fim).map(VisitanteMapper::toDto);
+
+//        return repository.recuperarListaVisitantesDiario(inicio, fim)
+//                .stream()
+//                .map(VisitanteMapper::toDto)
+//                .toList();
     }
 
 }

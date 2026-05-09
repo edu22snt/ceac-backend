@@ -30,7 +30,6 @@ public class MudancaService {
 
     public MudancaDTO save(MudancaDTO dto) {
         log.debug("Request to post save Mudanca");
-        dto.setData(LocalDateTime.now());
         Mudanca mudanca = mapper.toEntity(dto);
         mudanca = repository.save(mudanca);
         return mapper.toDto(mudanca);

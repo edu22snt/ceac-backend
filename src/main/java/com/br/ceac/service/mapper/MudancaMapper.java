@@ -51,7 +51,7 @@ public class MudancaMapper {
         entity.setId(dto.getId());
         entity.setMorador(morador);
         entity.setTipo(dto.getTipo());
-        entity.setData(LocalDateTime.now());
+        entity.setData(dto.getData());
         return entity;
     }
 
@@ -97,7 +97,7 @@ public class MudancaMapper {
         dto.setId(entity.getId());
         dto.setMorador(morador);
         dto.setTipo(entity.getTipo());
-        dto.setData(LocalDateTime.now());
+        dto.setData(entity.getData());
         return dto;
     }
 

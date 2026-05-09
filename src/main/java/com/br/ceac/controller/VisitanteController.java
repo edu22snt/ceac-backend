@@ -54,8 +54,8 @@ public class VisitanteController {
     }
 
     @GetMapping("/recuperarListaVisitantesDiario")
-    public ResponseEntity<List<VisitanteDTO>> recuperarListaVisitantesDiario() {
-        return ResponseEntity.ok(service.recuperarListaVisitantesDiario());
+    public ResponseEntity<Page<VisitanteDTO>> recuperarListaVisitantesDiario(Pageable pageable) {
+        return ResponseEntity.ok(service.recuperarListaVisitantesDiario(pageable));
     }
 
     @DeleteMapping("/delete/{id}")

@@ -27,5 +27,5 @@ public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
     Page<Visitante> searchByKeyword(@Param("keyword") String keyword, Pageable pageable);
 
     @Query("SELECT v FROM Visitante v WHERE v.dataEntrada >= :inicio AND v.dataEntrada < :fim")
-    List<Visitante> recuperarListaVisitantesDiario(@Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
+    Page<Visitante> recuperarListaVisitantesDiario(Pageable pageable, @Param("inicio") LocalDateTime inicio, @Param("fim") LocalDateTime fim);
 }
