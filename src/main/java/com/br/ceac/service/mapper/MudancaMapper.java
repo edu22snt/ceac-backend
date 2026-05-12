@@ -47,6 +47,7 @@ public class MudancaMapper {
         morador.setNome(dto.getMorador().getNome());
         morador.setEmail(dto.getMorador().getEmail());
         morador.setId(dto.getMorador().getId());
+        morador.setTelefone(dto.getMorador().getTelefone());
 
         entity.setId(dto.getId());
         entity.setMorador(morador);
@@ -93,6 +94,7 @@ public class MudancaMapper {
         morador.setNome(entity.getMorador().getNome());
         morador.setEmail(entity.getMorador().getEmail());
         morador.setId(entity.getMorador().getId());
+        morador.setTelefone(entity.getMorador().getTelefone());
 
         dto.setId(entity.getId());
         dto.setMorador(morador);

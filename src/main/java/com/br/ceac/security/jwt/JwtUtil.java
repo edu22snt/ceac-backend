@@ -74,6 +74,7 @@ public class JwtUtil {
         Map<String, Object> claims = new HashMap<>();
         List<String> roles = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
         claims.put("roles", roles);
+
         return createToken(claims, userDetails.getUsername());
     }
 

@@ -19,6 +19,7 @@ public class SecurityConfig {
 
     private static final String USER = "USER";
     private static final String ADMIN = "ADMIN";
+    private static final String PORTARIA = "PORTARIA";
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtRequestFilter jwtRequestFilter) throws Exception {
@@ -28,14 +29,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/authenticate/**").permitAll()
                         .requestMatchers("/api/condominio/**").hasAnyRole(USER, ADMIN)
-                        .requestMatchers("/api/controleAcesso/**").hasAnyRole(USER, ADMIN)
-                        .requestMatchers("/api/morador/**").hasAnyRole(USER, ADMIN)
+                        .requestMatchers("/api/controleAcesso/**").hasAnyRole(USER, ADMIN, PORTARIA)
+                        .requestMatchers("/api/morador/**").hasAnyRole(USER, ADMIN, PORTARIA)
                         .requestMatchers("/api/unidade/**").hasAnyRole(USER, ADMIN)
                         .requestMatchers("/api/usuario/**").hasAnyRole(USER, ADMIN)
-                        .requestMatchers("/api/veiculo/**").hasAnyRole(USER, ADMIN)
-                        .requestMatchers("/api/visitante/**").hasAnyRole(USER, ADMIN)
+                        .requestMatchers("/api/veiculo/**").hasAnyRole(USER, ADMIN, PORTARIA)
+                        .requestMatchers("/api/visitante/**").hasAnyRole(USER, ADMIN, PORTARIA)
                         .requestMatchers("/api/portao/**").hasAnyRole(USER, ADMIN)
-                        .requestMatchers("/api/mudanca/**").hasAnyRole(USER, ADMIN)
+                        .requestMatchers("/api/mudanca/**").hasAnyRole(USER, ADMIN, PORTARIA)
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
